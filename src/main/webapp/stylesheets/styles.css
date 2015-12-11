@@ -1,0 +1,207 @@
+body {
+    margin: 30px;
+    background-color: #fff;
+    font-family: "Metallophile", "Trebuchet MS", Helvetica, sans-serif;
+}
+
+#top {
+    width: 100%;
+    height: 80px;
+}
+
+.totalNumber {
+    display: block;
+    height: 70px;
+    width: 20%;
+    float: right;
+    line-height: 73px;
+    font-size: 12px;
+    text-align: center;
+    font-size: 23px;
+    color: #999999;
+}
+
+.loadTitle {
+    /*background:#E6E3E3;*/
+    height: 70px;
+    display: block;
+    width: 80%;
+    float: left;
+
+    -webkit-background-size: 50px 50px;
+    -moz-background-size: 50px 50px;
+    background-size: 50px 50px; /* 控制条纹的大小 */
+
+    -moz-box-shadow: 1px 1px 8px gray;
+    -webkit-box-shadow: 1px 1px 8px gray;
+    box-shadow: 1px 1px 8px gray;
+    /*background-color: #ac0;*/
+    background-color: #ccc;
+    background-image: -webkit-gradient(linear, 0 100%, 100% 0,
+    color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent),
+    color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)),
+    color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent),
+    to(transparent));
+    background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+    transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+    transparent 75%, transparent);
+    background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+    transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+    transparent 75%, transparent);
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+    transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+    transparent 75%, transparent);
+}
+
+.search {
+    height: 27px;
+    width: 95%;
+    font-size: 17px;
+    margin-left: 2%;
+    margin-top: 19px;
+}
+
+.contant {
+    /*float: left;*/
+    width: 100%;
+}
+
+.title {
+    margin-top: 17px;
+    font-size: 24px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    float: left;
+    width: 70%;
+}
+
+.time {
+    text-align: right;
+    color: #ccc;
+    font-size: 15px;
+}
+
+.hr {
+    border: 1px dashed #ccc;
+}
+
+mark {
+    background-color: #ef5ba1;
+    font-weight: bold;
+    color: #fff;
+}
+
+.page {
+    margin: 2em;
+    float: right;
+}
+
+.page a {
+    text-decoration: none;
+    display: inline-block;
+    line-height: 14px;
+    padding: 2px 5px;
+    color: #333;
+    border: 1px solid #ccc;
+    margin: 0 2px;
+}
+
+.page a:hover, .page a.on {
+    background: #999;
+    color: #fff;
+    border: 1px solid #333;
+}
+
+.page a.unclick, .page a.unclick:hover {
+    background: none;
+    border: 1px solid #eee;
+    color: #999;
+    cursor: default;
+}
+
+button[type="addBookMark"] {
+    float: left;
+    margin-top: 17px;
+}
+
+.deleteButton{
+    float: right;
+    margin-top: 6px;
+}
+
+.bookmark{
+    width: 100%;
+    height: 55px;
+}
+input[type="text"]{
+    border: 2px solid #dce4ec;
+    color: #34495e;
+    font-family: "Lato", sans-serif;
+    font-size: 14px;
+    padding: 8px 0 9px 10px;
+    text-indent: 1px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    width: 70%;
+    font-size: 22px;
+}
+
+p[type="input"]{
+    margin-top: 42px;
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 10%;
+    -webkit-margin-end: 10%;
+}
+
+#add{
+    float: right;
+    margin-right: 10%;
+}
+
+.message{
+    height: 23px;
+    color: #ef5ba1;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 20px;
+}
+
+@media screen and (max-width:800px){
+    .totalNumber{
+        font-size: 18px;
+        width: 38%;
+    }
+    .loadTitle{
+        width: 60%;
+    }
+
+}
+
+@media screen and (max-width:1000px){
+    .totalNumber{
+        font-size: 20px;
+        width: 28%;
+    }
+    .loadTitle{
+        width: 70%;
+    }
+
+}
+
+@media screen and (max-width:600px){
+    .totalNumber{
+        font-size: 16px;
+        width: 48%;
+    }
+    .loadTitle{
+        width: 50%;
+    }
+
+}
