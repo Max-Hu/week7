@@ -10,7 +10,7 @@
 ## Get Started
 
 * Clone all files from this repository.( https://github.com/Max-Hu/week7.git )
-* Recommend use Intellij IDEA 15 (ULTIMATE) to open this project.
+* Recommend using Intellij IDEA 15 (ULTIMATE) for IDE.
 * Select "Import project from external model" and select Gradle.
 * Choice "Create directories for empty content roots automatically"
 * Select "Use local gradle distribution" and input your local Gradle home address, which end with "gradle/2.9/libexec".
