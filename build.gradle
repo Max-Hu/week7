@@ -18,9 +18,51 @@ repositories {
 
 dependencies {
     //从maven仓库导入依赖
-    compile ('org.apache.httpcomponents:httpclient:4.4')
-    compile ('org.apache.commons:commons-lang3:3.3.2')
+    compile 'org.apache.httpcomponents:httpclient:4.4'
+    compile 'org.apache.commons:commons-lang3:3.3.2'
+    providedCompile 'javax.servlet:servlet-api:2.5'
+    compile 'net.sf.json-lib:json-lib:2.4:jdk15'
     testCompile group: 'junit', name: 'junit', version: '4.11'
-    providedCompile ('javax.servlet:servlet-api:2.5')
-    compile ('net.sf.json-lib:json-lib:2.4:jdk15')
 }
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "com.bmuschko:gradle-tomcat-plugin:2.2.4"
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+apply plugin: "com.bmuschko.tomcat"
+war.baseName = "week7"
+project.webAppDirName = "src/main/webapp"
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src/main/java']
+        }
+        resources {
+            srcDirs = ['src/main/resources']
+        }
+    }
+}
+
+
+dependencies {
+    def tomcatVersion = '6.0.43'
+    tomcat "org.apache.tomcat:catalina:${tomcatVersion}",
+            "org.apache.tomcat:coyote:${tomcatVersion}",
+            "org.apache.tomcat:jasper:${tomcatVersion}"
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+tomcatRun.contextPath = '/week7'
+tomcatRunWar.contextPath = '/week7'
