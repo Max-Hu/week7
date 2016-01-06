@@ -6,15 +6,6 @@ import net.sf.json.JSONObject;
 
 import java.io.IOException;
 
-
-/**
- * Created by zhihu on 15/12/8.
- [
- {
- "title": "Code Generation Network - Language Translation ...",
- "created": "1387243195"
- },
- */
 public class BookMarkManagement {
 
     public static String add(String name, String url) throws IOException {
