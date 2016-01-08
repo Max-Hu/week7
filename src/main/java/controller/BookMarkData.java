@@ -20,7 +20,7 @@ public class BookMarkData {
     }
 
     public static void writeBookMarksData(String content)throws IOException{
-        String path = BookMarkData.class.getResource("..../").getFile().toString();
+        String path = BookMarkData.class.getResource("../").getFile().toString();
         path += "bookmarks.json";
         OutputStream os = new FileOutputStream(new File(path));
         OutputStreamWriter outputStreamWriter = new OutputStreamWriter(os,"UTF-8");
