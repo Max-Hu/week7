@@ -10,15 +10,20 @@
 
     <servlet>
         <servlet-name>Init</servlet-name>
-        <servlet-class>controller.BookMarkInit</servlet-class>   <!--Servlet的类-->
-        <init-param>                                     <!--初始化一个变量，可看成全局变量，可省略-->
-            <param-name>参数名称</param-name>              <!--变量名称-->
-            <param-value>参数值</param-value>              <!--变量值-->
-        </init-param>
+        <servlet-class>controller.BookMarkInitServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Init</servlet-name>
-        <url-pattern>/init</url-pattern>                   <!--映射的url路径 -->
+        <url-pattern>/init</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Add</servlet-name>
+        <servlet-class>controller.BookMarkAddServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Add</servlet-name>
+        <url-pattern>/add</url-pattern>
     </servlet-mapping>
 
 </web-app>
