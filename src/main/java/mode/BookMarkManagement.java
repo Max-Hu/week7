@@ -36,5 +36,10 @@ public class BookMarkManagement {
         String path = BookMarkManagement.class.getResource("../").getFile().toString();
         bookMarkPath = path + "bookmarks.json";
         file = new File(bookMarkPath);
+        if (!file.exists()){
+            String gradlePath = path.substring(0,path.indexOf("classes"));
+            gradlePath += "resources/main/bookmarks.json";
+            file = new File(gradlePath);
+        }
     }
 }

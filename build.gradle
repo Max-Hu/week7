@@ -3,21 +3,20 @@ version '1.0-SNAPSHOT'
 
 
 apply plugin: 'java'
-//IntelliJ IDEA 插件
+
 apply plugin: 'idea'
-//war包插件
+
+apply plugin:"jetty"
+
 apply plugin: 'war'
 
-sourceCompatibility = 1.6
 version = '1.0'
 
 repositories {
-    //    使用开源中国的maven仓库
     maven { url 'http://maven.oschina.net/content/groups/public/' }
 }
 
 dependencies {
-    //从maven仓库导入依赖
     compile 'org.apache.httpcomponents:httpclient:4.4',
             'org.apache.commons:commons-lang3:3.3.2',
             'javax.servlet:servlet-api:2.5',
@@ -26,44 +25,10 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
 }
 
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath "com.bmuschko:gradle-tomcat-plugin:2.2.4"
-    }
+jettyRun{
+    webAppSourceDirectory file("$projectDir/src/main/webapp")
+    httpPort 8080
+    contextPath project.name
+    scanIntervalSeconds 0
+    reload "automatic"
 }
-
-repositories {
-    mavenCentral()
-}
-
-apply plugin: "com.bmuschko.tomcat"
-war.baseName = "week7"
-project.webAppDirName = "src/main/webapp"
-
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/main/java']
-        }
-        resources {
-            srcDirs = ['src/main/resources']
-        }
-    }
-}
-
-
-dependencies {
-    def tomcatVersion = '6.0.43'
-    tomcat "org.apache.tomcat:catalina:${tomcatVersion}",
-            "org.apache.tomcat:coyote:${tomcatVersion}",
-            "org.apache.tomcat:jasper:${tomcatVersion}"
-}
-
-tasks.withType(JavaCompile) {
-    options.encoding = "UTF-8"
-}
-tomcatRun.contextPath = '/week7'
-tomcatRunWar.contextPath = '/week7'
