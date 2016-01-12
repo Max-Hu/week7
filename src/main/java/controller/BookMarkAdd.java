@@ -20,12 +20,4 @@ public class BookMarkAdd {
         management.writeBookMarksData(modifyData);
         return management.getInitBookMarksData();
     }
-
-    public String getNewBookMark() {
-        return newBookMark;
-    }
-
-    public void setNewBookMark(String newBookMark) {
-        this.newBookMark = newBookMark;
-    }
 }

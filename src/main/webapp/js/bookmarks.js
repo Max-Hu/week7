@@ -8,7 +8,7 @@ var searchData;
 
 $(function () {
     $.ajax({
-        url: "init.jsp",
+        url: "init",
         data: {'command': 'init'},
         dataType: "json",
         async: false,
@@ -238,7 +238,7 @@ function addSubmit(){
     }
     $.ajax({
         type: "post",
-        url: "add.jsp",
+        url: "add",
         data: {'title': name,'address':url},
         //data: "command=12345", //+ name + "&address=" + url + "&command=add",
         success: function (data) {
@@ -265,7 +265,7 @@ function deleteBookMark(id){
     }, function(){
         $.ajax({
             type: "post",
-            url: "delete.jsp",
+            url: "delete",
             data: {'time': id},
             //data: "command=12345", //+ name + "&address=" + url + "&command=add",
             success: function (data) {
