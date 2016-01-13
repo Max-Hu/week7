@@ -15,5 +15,6 @@ end
 
 When(/^I click confirm button$/) do
   click_on 'add'
-  sleep 1
 end
+
+

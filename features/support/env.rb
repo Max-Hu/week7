@@ -6,4 +6,4 @@ Capybara.register_driver :selenium do |app|
 end
 
 Capybara.default_driver = :selenium
-Capybara.app_host = 'http://127.0.0.1:8080'
+Capybara.app_host = 'http://127.0.0.1:8080/week7'
