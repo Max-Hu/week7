@@ -18,6 +18,7 @@ public class BookMarkAdd {
         String defaultData = management.getInitBookMarksData();
         String modifyData = newBookMark + defaultData.substring(1,defaultData.length());
         management.writeBookMarksData(modifyData);
-        return management.getInitBookMarksData();
+//        return management.getInitBookMarksData();
+        return modifyData;
     }
 }

@@ -23,7 +23,8 @@ public class BookMarkDelete {
             }
         }
         bookMarkManagement.writeBookMarksData(result.toString());
-        return bookMarkManagement.getInitBookMarksData();
+//        return bookMarkManagement.getInitBookMarksData();
+        return result.toString();
     }
 
     public JSONArray getBookMarkList() throws IOException{
