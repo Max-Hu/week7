@@ -9,17 +9,17 @@
 * Bundle version 1.10.6
 
 ## Get Started
-* > git clone https://github.com/Max-Hu/week7.git
+* >git clone https://github.com/Max-Hu/week7.git
 * Enter the project dir
-* > gradle build
-* > gradle jettyRun
+* >gradle build
+* >gradle jettyRun
 
 ## Get Tested
-* initialize test environment:
-> bundle install  
+* initialize test environment:  
+>bundle install  
 * There are three features allow to test (search, addition and delete)  
-> cucumber features/search.feature
-> cucumber features/addition.feature
-> cucumber features/delete.feature
-* Note that all tests are based on the default data from "src/main/webapp/data/bookmarks.json".
+>cucumber features/search.feature
+>cucumber features/addition.feature
+>cucumber features/delete.feature
+* Note that all tests are based on the default data from "src/main/resources/bookmarks.json".
 
