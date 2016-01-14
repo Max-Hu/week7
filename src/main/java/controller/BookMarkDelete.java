@@ -1,9 +1,9 @@
 package controller;
 
-import net.sf.json.JSONArray;
-import net.sf.json.JSONObject;
+import mode.BookMark;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class BookMarkDelete {
 
@@ -14,22 +14,14 @@ public class BookMarkDelete {
     }
 
     public String delete(String timeStamp) throws IOException {
-        JSONArray result = new JSONArray();
-        JSONArray bookMarkList = getBookMarkList();
-        for (int i = 0; i < bookMarkList.size(); i++) {
-            JSONObject jo = bookMarkList.getJSONObject(i);
-            if (!jo.getString("created").equals(timeStamp)){
-                result.add(jo);
+        ArrayList<BookMark> processedList = new ArrayList<BookMark>();
+        ArrayList<BookMark> defaultList = bookMarkManagement.getBookMarkList();
+        for (BookMark book : defaultList) {
+            if (!book.getCreated().equals(timeStamp)){
+                processedList.add(book);
             }
         }
-        bookMarkManagement.writeBookMarksData(result.toString());
-//        return bookMarkManagement.getInitBookMarksData();
-        return result.toString();
-    }
-
-    public JSONArray getBookMarkList() throws IOException{
-        String defaultData = bookMarkManagement.getInitBookMarksData();
-        JSONArray jsonArray = JSONArray.fromObject(defaultData);
-        return  jsonArray;
+        bookMarkManagement.writeBookMarksData(processedList);
+        return bookMarkManagement.bookMarkListToJson(processedList);
     }
 }

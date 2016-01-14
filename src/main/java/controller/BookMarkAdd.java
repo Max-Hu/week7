@@ -1,24 +1,25 @@
 package controller;
 
+import mode.BookMark;
+
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class BookMarkAdd {
 
-    private String newBookMark;
+    private BookMark bookMark;
 
     public BookMarkAdd(String name, String url) {
-        String jsonObject = "[{\"title\": \"" + name + "\",";
-        jsonObject += "\"url\": \"" + url + "\",";
-        jsonObject += "\"created\": \"" + String.valueOf(System.currentTimeMillis()/1000) + "\"},";
-        this.newBookMark = jsonObject;
+        BookMark bookMark = new BookMark(name,url,String.valueOf(System.currentTimeMillis()/1000));
+        this.bookMark = bookMark;
+
     }
 
     public String addNewBookMark() throws IOException {
         mode.BookMarkManagement management = new mode.BookMarkManagement();
-        String defaultData = management.getInitBookMarksData();
-        String modifyData = newBookMark + defaultData.substring(1,defaultData.length());
-        management.writeBookMarksData(modifyData);
-//        return management.getInitBookMarksData();
-        return modifyData;
+        ArrayList<BookMark> defaultList = management.getBookMarkList();
+        defaultList.add(0,bookMark);
+        management.writeBookMarksData(defaultList);
+        return management.bookMarkListToJson(defaultList);
     }
 }
