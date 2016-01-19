@@ -26,7 +26,7 @@ function addSubmit(){
             inputValue = "";
             getTotalNumber(defaultData);
             pageNumber = getPageNumber(defaultData);
-            setPage(document.getElementsByClassName("page") [0],pageNumber, 1 );
+            initPage(document.getElementsByClassName("page") [0],pageNumber, 1 );
             parent.layer.msg('您已经将' +name + ' 成功添加', {icon: 1});
             parent.layer.close(index);
         }

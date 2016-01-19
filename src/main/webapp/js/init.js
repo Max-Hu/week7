@@ -17,7 +17,7 @@ $(function () {
             defaultGroup = groupBy(defaultData);
             getTotalNumber(defaultData);
             pageNumber = getPageNumber(defaultData);
-            setPage(document.getElementsByClassName("page") [0],pageNumber, 1 );
+            initPage(document.getElementsByClassName("page") [0],pageNumber, 1 );
         }
     });
 
@@ -35,7 +35,7 @@ $(function () {
         }else {
             pageNumber = 1;
         }
-        setPage(document.getElementsByClassName("page") [0],pageNumber, 1 );
+        initPage(document.getElementsByClassName("page") [0],pageNumber, 1 );
     });
 
     $('#my-button').bind('click', function() {

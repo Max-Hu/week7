@@ -1,3 +1,7 @@
+function initPage(container, count, pageIndex){
+    createPageHtml(pageIndex,count);
+    setPage(container, count, pageIndex);
+}
 function setPage(container, count, pageIndex) {
     createPageHtml(pageIndex,count);
     var a = [];

@@ -16,7 +16,7 @@ function deleteBookMark(id){
                 inputValue = "";
                 getTotalNumber(defaultData);
                 pageNumber = getPageNumber(defaultData);
-                setPage(document.getElementsByClassName("page") [0],pageNumber, 1 );
+                initPage(document.getElementsByClassName("page") [0],pageNumber, 1 );
                 layer.msg('删除成功', {icon: 1});
             }
         });
