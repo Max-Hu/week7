@@ -12,8 +12,9 @@ public class BookMarkAdd {
     public BookMarkAdd(String name, String url) {
         BookMark bookMark = new BookMark(name,url,String.valueOf(System.currentTimeMillis()/1000));
         this.bookMark = bookMark;
-
     }
+
+    private BookMarkAdd(){}
 
     public String addNewBookMark() throws IOException {
         mode.BookMarkManagement management = new mode.BookMarkManagement();
