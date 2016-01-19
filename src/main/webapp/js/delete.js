@@ -8,14 +8,9 @@ function deleteBookMark(id){
             data: {'time': id},
             success: function (data) {
                 defaultData = JSON.parse(data);
-                searchData = "";
-                defaultGroup = groupBy(defaultData);
                 $("#top").children("li:last-child").remove();
-                $("#jsonTip").empty();
-                $("#textbox").val("");
-                inputValue = "";
-                getTotalNumber(defaultData);
-                pageNumber = getPageNumber(defaultData);
+                cleanPage();
+                setBookMarkData(defaultData);
                 initPage(document.getElementsByClassName("page") [0],pageNumber, 1 );
                 layer.msg('删除成功', {icon: 1});
             }

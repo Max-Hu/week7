@@ -3,7 +3,6 @@ function initPage(container, count, pageIndex){
     setPage(container, count, pageIndex);
 }
 function setPage(container, count, pageIndex) {
-    createPageHtml(pageIndex,count);
     var a = [];
     if (pageIndex == 1) {
         a[a.length] = "<a href=\"#\" class=\"prev unclick\">prev</a>";
@@ -17,13 +16,11 @@ function setPage(container, count, pageIndex) {
             a[a.length] = "<a href=\"#\">" + i + "</a>";
         }
     }
-
     if (count <= 10) {
         for (var i = 1; i <= count; i++) {
             setPageList();
         }
     }
-
     else {
         if (pageIndex <= 4) {
             for (var i = 1; i <= 5; i++) {
@@ -58,13 +55,13 @@ function setPage(container, count, pageIndex) {
                 return false;
             }
             inx--;
-            setPage(container, count, inx);
+            initPage(container, count, inx);
             return false;
         };
         for (var i = 1; i < oAlink.length - 1; i++) {
             oAlink[i].onclick = function () {
                 inx = parseInt(this.innerHTML);
-                setPage(container, count, inx);
+                initPage(container, count, inx);
                 return false;
             }
         }
@@ -73,8 +70,8 @@ function setPage(container, count, pageIndex) {
                 return false;
             }
             inx++;
-            setPage(container, count, inx);
+            initPage(container, count, inx);
             return false;
         }
-    }()
+    }
 }

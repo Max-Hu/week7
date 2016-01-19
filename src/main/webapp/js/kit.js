@@ -71,3 +71,16 @@ function createHtml(title, realtime,timeStamp,url) {
     strHtml += "<hr class=\'hr\'>";
     return strHtml;
 }
+
+function cleanPage(){
+    searchData = "";
+    $("#jsonTip").empty();
+    $("#textbox").val("");
+    inputValue = "";
+}
+
+function setBookMarkData(defaultData){
+    defaultGroup = groupBy(defaultData);
+    getTotalNumber(defaultData);
+    pageNumber = getPageNumber(defaultData);
+}
