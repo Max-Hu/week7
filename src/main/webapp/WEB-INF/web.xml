@@ -34,5 +34,16 @@
         <servlet-name>DeleteBookMark</servlet-name>
         <url-pattern>/delete</url-pattern>
     </servlet-mapping>
-
+    <error-page>
+        <error-code>404</error-code>
+        <location>/errors/pageNoFound.jsp</location>
+    </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/errors/pageErrors.jsp</location>
+    </error-page>
+    <error-page>
+        <exception-type>java.lang.NullPointerException</exception-type>
+        <location>/errors/pageNoFound.jsp</location>
+    </error-page>
 </web-app>

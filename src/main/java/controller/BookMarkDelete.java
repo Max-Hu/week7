@@ -13,9 +13,9 @@ public class BookMarkDelete {
         this.bookMarkManagement = new mode.BookMarkManagement();
     }
 
-    public String delete(String timeStamp) throws IOException {
+    public String delete(String timeStamp) {
         ArrayList<BookMark> processedList = new ArrayList<BookMark>();
-        ArrayList<BookMark> defaultList = bookMarkManagement.getBookMarkList();
+        ArrayList<BookMark> defaultList = bookMarkManagement.getBookMarkListFromData();
         for (BookMark book : defaultList) {
             if (!book.getCreated().equals(timeStamp)){
                 processedList.add(book);

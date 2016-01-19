@@ -18,7 +18,7 @@ public class BookMarkAdd {
 
     public String addNewBookMark() throws IOException {
         mode.BookMarkManagement management = new mode.BookMarkManagement();
-        ArrayList<BookMark> defaultList = management.getBookMarkList();
+        ArrayList<BookMark> defaultList = management.getBookMarkListFromData();
         defaultList.add(0,bookMark);
         management.writeBookMarksData(defaultList);
         return management.bookMarkListToJson(defaultList);

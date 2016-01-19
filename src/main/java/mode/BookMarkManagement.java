@@ -6,6 +6,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 public class BookMarkManagement {
 
@@ -13,30 +14,44 @@ public class BookMarkManagement {
     private String bookMarkPath;
     private Gson gson;
 
+    static Logger logger = Logger.getLogger(BookMarkManagement.class.getName());
+
     public BookMarkManagement() {
         this.gson = new Gson();
         getDataFilePath();
     }
 
-    public String getInitBookMarksData() throws IOException {
-        InputStreamReader read = new InputStreamReader(new FileInputStream(file),"UTF-8");
-        BufferedReader reader=new BufferedReader(read);
-        String line;
-        String fileContent = "";
-        while ((line = reader.readLine()) != null) {
-            fileContent += line;
+    public String getInitBookMarksData() {
+        try {
+            InputStreamReader read = new InputStreamReader(new FileInputStream(file),"UTF-8");
+            BufferedReader reader=new BufferedReader(read);
+            String line;
+            String fileContent = "";
+            while ((line = reader.readLine()) != null) {
+                fileContent += line;
+            }
+            reader.close();
+            return fileContent;
+        } catch (IOException e){
+            logger.severe("[severe]Init Data Error!");
+            e.printStackTrace();
+            return null;
         }
-        reader.close();
-        return fileContent;
+
     }
 
-    public void writeBookMarksData(String content) throws IOException {
-        OutputStream os = new FileOutputStream(new File(bookMarkPath));
-        OutputStreamWriter outputStreamWriter = new OutputStreamWriter(os,"UTF-8");
-        BufferedWriter writer=new BufferedWriter(outputStreamWriter);
-        writer.write(content);
-        writer.flush();
-        writer.close();
+    public void writeBookMarksData(String content) {
+        try {
+            OutputStream os = new FileOutputStream(new File(bookMarkPath));
+            OutputStreamWriter outputStreamWriter = new OutputStreamWriter(os,"UTF-8");
+            BufferedWriter writer=new BufferedWriter(outputStreamWriter);
+            writer.write(content);
+            writer.flush();
+            writer.close();
+        } catch (IOException e){
+            logger.severe("[severe]Write Data Error!");
+            e.printStackTrace();
+        }
     }
 
     private void getDataFilePath(){
@@ -50,12 +65,12 @@ public class BookMarkManagement {
         }
     }
 
-    public ArrayList<BookMark> getBookMarkList() throws IOException {
+    public ArrayList<BookMark> getBookMarkListFromData() {
         Type listType = new TypeToken<ArrayList<BookMark>>(){}.getType();
         return gson.fromJson(getInitBookMarksData(),listType);
     }
 
-    public void writeBookMarksData(ArrayList<BookMark> list) throws IOException {
+    public void writeBookMarksData(ArrayList<BookMark> list) {
         writeBookMarksData(gson.toJson(list));
     }
 
