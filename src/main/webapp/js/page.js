@@ -73,5 +73,5 @@ function setPage(container, count, pageIndex) {
             initPage(container, count, inx);
             return false;
         }
-    }
+    }()
 }
