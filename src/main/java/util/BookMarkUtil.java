@@ -1,7 +1,9 @@
-package mode;
+package util;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import mode.BookMark;
+import mode.BookMarkManagement;
 
 import java.io.IOException;
 import java.lang.reflect.Type;

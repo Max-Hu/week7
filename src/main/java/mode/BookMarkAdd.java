@@ -1,5 +1,7 @@
 package mode;
 
+import util.BookMarkUtil;
+
 import java.io.IOException;
 import java.util.ArrayList;
 

@@ -1,5 +1,7 @@
 package mode;
 
+import util.BookMarkUtil;
+
 import java.util.ArrayList;
 
 public class BookMarkDelete {
