@@ -1,23 +1,16 @@
 package mode;
 
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-
 import java.io.*;
-import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.logging.Logger;
 
 public class BookMarkManagement {
 
     private File file;
     private String bookMarkPath;
-    private Gson gson;
 
     static Logger logger = Logger.getLogger(BookMarkManagement.class.getName());
 
     public BookMarkManagement() {
-        this.gson = new Gson();
         getDataFilePath();
     }
 
@@ -33,8 +26,7 @@ public class BookMarkManagement {
             reader.close();
             return fileContent;
         } catch (IOException e){
-            logger.severe("[severe]Init Data Error!");
-            e.printStackTrace();
+            logger.severe("[severe]Init Data Error!" + e.getMessage());
             return null;
         }
 
@@ -49,8 +41,7 @@ public class BookMarkManagement {
             writer.flush();
             writer.close();
         } catch (IOException e){
-            logger.severe("[severe]Write Data Error!");
-            e.printStackTrace();
+            logger.severe("[severe]Write Data Error!" + e.getMessage());
         }
     }
 
@@ -63,24 +54,6 @@ public class BookMarkManagement {
             bookMarkPath += "resources/main/bookmarks.json";
             file = new File(bookMarkPath);
         }
-    }
-
-    public ArrayList<BookMark> getBookMarkListFromData() {
-        Type listType = new TypeToken<ArrayList<BookMark>>(){}.getType();
-        return gson.fromJson(getInitBookMarksData(),listType);
-    }
-
-    public void writeBookMarksData(ArrayList<BookMark> list) {
-        writeBookMarksData(gson.toJson(list));
-    }
-
-    public String bookMarkListToJson(ArrayList<BookMark> list){
-        return gson.toJson(list);
-    }
-
-    public ArrayList<BookMark> jsonToBookMarkList(String json) throws IOException {
-        Type listType = new TypeToken<ArrayList<BookMark>>(){}.getType();
-        return gson.fromJson(json,listType);
     }
 
 }

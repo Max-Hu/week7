@@ -1,6 +1,4 @@
-package controller;
-
-import mode.BookMark;
+package mode;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -8,19 +6,22 @@ import java.util.ArrayList;
 public class BookMarkAdd {
 
     private BookMark bookMark;
+    private BookMarkManagement management;
+    private BookMarkUtil util;
 
     public BookMarkAdd(String name, String url) {
         BookMark bookMark = new BookMark(name,url,String.valueOf(System.currentTimeMillis()/1000));
         this.bookMark = bookMark;
+        this.management = new mode.BookMarkManagement();
+        this.util = new BookMarkUtil();
     }
 
     private BookMarkAdd(){}
 
     public String addNewBookMark() throws IOException {
-        mode.BookMarkManagement management = new mode.BookMarkManagement();
-        ArrayList<BookMark> defaultList = management.getBookMarkListFromData();
+        ArrayList<BookMark> defaultList = util.getBookMarkListFromData();
         defaultList.add(0,bookMark);
-        management.writeBookMarksData(defaultList);
-        return management.bookMarkListToJson(defaultList);
+        management.writeBookMarksData(util.bookMarkListToJson(defaultList));
+        return util.bookMarkListToJson(defaultList);
     }
 }
